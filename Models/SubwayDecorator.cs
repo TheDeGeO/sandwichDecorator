@@ -2,6 +2,12 @@ public abstract class SubwayDecorator : ISubwayComponent
 {
     protected ISubwayComponent _component;
 
+    public int Size
+    {
+        get => _component.Size;
+        set => _component.Size = value;
+    }
+
     public SubwayDecorator(ISubwayComponent component)
     {
         _component = component;

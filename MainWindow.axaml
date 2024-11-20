@@ -2,22 +2,53 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
         x:Class="SubgueiApp.MainWindow"
-        Title="SubgueiApp">
-    <StackPanel Margin="20">
-        <TextBlock Text="Build Your Subway" FontSize="24" Margin="0,0,0,20"/>
-        
-        <CheckBox Name="CheeseCheckBox" Content="Add Cheese (+$1.00)" Margin="0,5"/>
-        <CheckBox Name="TomatoCheckBox" Content="Add Tomato (+$0.50)" Margin="0,5"/>
-        
-        <Button Name="CalculateButton" 
-                Content="Calculate Total" 
-                Margin="0,20"
-                Click="OnCalculateClick"/>
-        
-        <TextBlock Name="ResultText" 
-                   Text="Select your ingredients" 
-                   FontSize="16"/>
-    </StackPanel>
+        Title="Subway Restaurant">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Arma tu Sándwich" FontSize="24"/>
+            
+            <ComboBox Name="SandwichType" Margin="0,10">
+                <ComboBoxItem>Pavo</ComboBoxItem>
+                <ComboBoxItem>Italiano</ComboBoxItem>
+                <ComboBoxItem>Beef</ComboBoxItem>
+                <ComboBoxItem>Veggie</ComboBoxItem>
+                <ComboBoxItem>Atún</ComboBoxItem>
+                <ComboBoxItem>Pollo</ComboBoxItem>
+            </ComboBox>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <RadioButton Name="Size15" Content="15 cm" IsChecked="True" GroupName="Size"/>
+                <RadioButton Name="Size30" Content="30 cm" Margin="20,0,0,0" GroupName="Size"/>
+            </StackPanel>
+
+            <TextBlock Text="Adicionales:" Margin="0,10"/>
+            <CheckBox Name="Avocado" Content="Aguacate"/>
+            <CheckBox Name="ExtraProtein" Content="Doble proteína"/>
+            <CheckBox Name="Soup" Content="Sopa"/>
+
+            <Button Name="AddToOrder" 
+                    Content="Agregar a la orden" 
+                    Margin="0,20"
+                    Click="OnAddToOrderClick"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <TextBlock Name="OrderDetails" 
+                      Text="Orden actual:" 
+                      TextWrapping="Wrap"/>
+        </ScrollViewer>
+
+        <Button Grid.Row="2" 
+                Name="FinishOrder"
+                Content="Finalizar Orden"
+                Click="OnFinishOrderClick"/>
+    </Grid>
 </Window>
