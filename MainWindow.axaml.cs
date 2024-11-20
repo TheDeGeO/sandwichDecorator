@@ -30,8 +30,17 @@ public partial class MainWindow : Window
             if (this.FindControl<CheckBox>("ExtraProtein").IsChecked == true)
                 sandwich = new ExtraProteinDecorator(sandwich);
             
+            if (this.FindControl<CheckBox>("Mushrooms").IsChecked == true)
+                sandwich = new MushroomDecorator(sandwich);
+            
+            if (this.FindControl<CheckBox>("Drink").IsChecked == true)
+                sandwich = new DrinkDecorator(sandwich);
+            
             if (this.FindControl<CheckBox>("Soup").IsChecked == true)
                 sandwich = new SoupDecorator(sandwich);
+            
+            if (this.FindControl<CheckBox>("Dessert").IsChecked == true)
+                sandwich = new DessertDecorator(sandwich);
 
             _order.Add(sandwich);
             UpdateOrderDisplay();

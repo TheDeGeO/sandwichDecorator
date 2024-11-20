@@ -32,7 +32,10 @@
             <TextBlock Text="Adicionales:" Margin="0,10"/>
             <CheckBox Name="Avocado" Content="Aguacate"/>
             <CheckBox Name="ExtraProtein" Content="Doble proteína"/>
+            <CheckBox Name="Mushrooms" Content="Hongos"/>
+            <CheckBox Name="Drink" Content="Refresco"/>
             <CheckBox Name="Soup" Content="Sopa"/>
+            <CheckBox Name="Dessert" Content="Postre"/>
 
             <Button Name="AddToOrder" 
                     Content="Agregar a la orden" 
