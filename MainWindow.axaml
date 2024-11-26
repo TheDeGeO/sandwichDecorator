@@ -15,7 +15,7 @@
         <StackPanel Grid.Row="0" Margin="0,0,0,20">
             <TextBlock Text="Arma tu Sándwich" FontSize="24"/>
             
-            <ComboBox Name="SandwichType" Margin="0,10">
+            <ComboBox Name="SandwichType" Margin="0,10" Width="200" HorizontalAlignment="Left">
                 <ComboBoxItem>Pavo</ComboBoxItem>
                 <ComboBoxItem>Italiano</ComboBoxItem>
                 <ComboBoxItem>Beef</ComboBoxItem>
@@ -29,13 +29,56 @@
                 <RadioButton Name="Size30" Content="30 cm" Margin="20,0,0,0" GroupName="Size"/>
             </StackPanel>
 
-            <TextBlock Text="Adicionales:" Margin="0,10"/>
-            <CheckBox Name="Avocado" Content="Aguacate"/>
-            <CheckBox Name="ExtraProtein" Content="Doble proteína"/>
-            <CheckBox Name="Mushrooms" Content="Hongos"/>
-            <CheckBox Name="Drink" Content="Refresco"/>
-            <CheckBox Name="Soup" Content="Sopa"/>
-            <CheckBox Name="Dessert" Content="Postre"/>
+            <TextBlock Text="Adicionales:" Margin="0,10" FontSize="16"/>
+            <Grid ColumnDefinitions="Auto,*,120" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" Margin="0,5">
+                <!-- Avocado -->
+                <CheckBox Name="Avocado" Content="Aguacate" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                <NumericUpDown Name="AvocadoCount" Grid.Row="0" Grid.Column="2" 
+                             Minimum="1" Value="1" Maximum="999"
+                             FormatString="0"
+                             Width="120" Height="35"
+                             IsEnabled="{Binding #Avocado.IsChecked}"/>
+
+                <!-- Extra Protein -->
+                <CheckBox Name="ExtraProtein" Content="Doble proteína" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                <NumericUpDown Name="ExtraProteinCount" Grid.Row="1" Grid.Column="2"
+                             Minimum="1" Value="1" Maximum="999"
+                             FormatString="0"
+                             Width="120" Height="35"
+                             IsEnabled="{Binding #ExtraProtein.IsChecked}"/>
+
+                <!-- Mushrooms -->
+                <CheckBox Name="Mushrooms" Content="Hongos" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                <NumericUpDown Name="MushroomsCount" Grid.Row="2" Grid.Column="2"
+                             Minimum="1" Value="1" Maximum="999"
+                             FormatString="0"
+                             Width="120" Height="35"
+                             IsEnabled="{Binding #Mushrooms.IsChecked}"/>
+
+                <!-- Drink -->
+                <CheckBox Name="Drink" Content="Refresco" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                <NumericUpDown Name="DrinkCount" Grid.Row="3" Grid.Column="2"
+                             Minimum="1" Value="1" Maximum="999"
+                             FormatString="0"
+                             Width="120" Height="35"
+                             IsEnabled="{Binding #Drink.IsChecked}"/>
+
+                <!-- Soup -->
+                <CheckBox Name="Soup" Content="Sopa" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                <NumericUpDown Name="SoupCount" Grid.Row="4" Grid.Column="2"
+                             Minimum="1" Value="1" Maximum="999"
+                             FormatString="0"
+                             Width="120" Height="35"
+                             IsEnabled="{Binding #Soup.IsChecked}"/>
+
+                <!-- Dessert -->
+                <CheckBox Name="Dessert" Content="Postre" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+                <NumericUpDown Name="DessertCount" Grid.Row="5" Grid.Column="2"
+                             Minimum="1" Value="1" Maximum="999"
+                             FormatString="0"
+                             Width="120" Height="35"
+                             IsEnabled="{Binding #Dessert.IsChecked}"/>
+            </Grid>
 
             <Button Name="AddToOrder" 
                     Content="Agregar a la orden" 

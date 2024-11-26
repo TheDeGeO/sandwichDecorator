@@ -1,6 +1,7 @@
 public abstract class SubwayDecorator : ISubwayComponent
 {
     protected ISubwayComponent _component;
+    protected int _count = 1;
 
     public int Size
     {
@@ -11,6 +12,11 @@ public abstract class SubwayDecorator : ISubwayComponent
     public SubwayDecorator(ISubwayComponent component)
     {
         _component = component;
+    }
+
+    public void IncrementCount()
+    {
+        _count++;
     }
 
     public virtual string GetDescription()

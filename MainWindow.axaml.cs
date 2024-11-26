@@ -25,22 +25,58 @@ public partial class MainWindow : Window
         if (sandwich != null)
         {
             if (this.FindControl<CheckBox>("Avocado").IsChecked == true)
-                sandwich = new AvocadoDecorator(sandwich);
+            {
+                var count = (int)this.FindControl<NumericUpDown>("AvocadoCount").Value;
+                var decorator = new AvocadoDecorator(sandwich);
+                for (int i = 1; i < count; i++)
+                    decorator.IncrementCount();
+                sandwich = decorator;
+            }
             
             if (this.FindControl<CheckBox>("ExtraProtein").IsChecked == true)
-                sandwich = new ExtraProteinDecorator(sandwich);
+            {
+                var count = (int)this.FindControl<NumericUpDown>("ExtraProteinCount").Value;
+                var decorator = new ExtraProteinDecorator(sandwich);
+                for (int i = 1; i < count; i++)
+                    decorator.IncrementCount();
+                sandwich = decorator;
+            }
             
             if (this.FindControl<CheckBox>("Mushrooms").IsChecked == true)
-                sandwich = new MushroomDecorator(sandwich);
+            {
+                var count = (int)this.FindControl<NumericUpDown>("MushroomsCount").Value;
+                var decorator = new MushroomDecorator(sandwich);
+                for (int i = 1; i < count; i++)
+                    decorator.IncrementCount();
+                sandwich = decorator;
+            }
             
             if (this.FindControl<CheckBox>("Drink").IsChecked == true)
-                sandwich = new DrinkDecorator(sandwich);
+            {
+                var count = (int)this.FindControl<NumericUpDown>("DrinkCount").Value;
+                var decorator = new DrinkDecorator(sandwich);
+                for (int i = 1; i < count; i++)
+                    decorator.IncrementCount();
+                sandwich = decorator;
+            }
             
             if (this.FindControl<CheckBox>("Soup").IsChecked == true)
-                sandwich = new SoupDecorator(sandwich);
+            {
+                var count = (int)this.FindControl<NumericUpDown>("SoupCount").Value;
+                var decorator = new SoupDecorator(sandwich);
+                for (int i = 1; i < count; i++)
+                    decorator.IncrementCount();
+                sandwich = decorator;
+            }
             
             if (this.FindControl<CheckBox>("Dessert").IsChecked == true)
-                sandwich = new DessertDecorator(sandwich);
+            {
+                var count = (int)this.FindControl<NumericUpDown>("DessertCount").Value;
+                var decorator = new DessertDecorator(sandwich);
+                for (int i = 1; i < count; i++)
+                    decorator.IncrementCount();
+                sandwich = decorator;
+            }
 
             _order.Add(sandwich);
             UpdateOrderDisplay();
